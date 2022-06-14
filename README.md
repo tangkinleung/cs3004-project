@@ -1,15 +1,15 @@
-Introduction
+Introduction:
 ‘Sneakerhead’ is a culture of collecting rare luxurious sneakers[1]. These rare sneakers are often sold in a limited quantity and have a popular resale market that drives the prices of these sneakers to thousands of dollars based on their popularity. As these rare sneakers are tough to acquire due to supply and demand, some factories create knock-offs to supply the enormous demand of people who wish to own the shoes. In the market, some knock-offs use the same materials and manufacturing methods to replicate the look of authentic sneakers at a fraction of the cost. Some dishonest people would buy these high-quality knock-offs and sell them to other sneaker enthusiasts as authentic sneakers at a high price.
 
-Motivation 
+Motivation:
 As mentioned in the introduction, our group is concerned about the rise in scams and counterfeit items in the market. The group desires to counter this issue, especially with the age of digital scams on the rise. The team is also aware of other similar solutions on the market and took inspiration from past works and improved upon them. The team would want to make use of and incorporate modern technologies like NFT to make it more secure and stand out from the current solutions. Therefore, the aim and motivation for the group are to find a way to make use of these technologies to solve the rising problems of digital scams.
 
-Problem
+Problem:
 To fight the illegitimacy of these rare sneakers, online marketplaces such as StockX and GOAT offer paid services to sellers and buyers to verify the sneakers’ authenticity. In recent years, these platforms have been criticized for their unreliability in authenticating sneakers. One of the examples would be Nike suing StockX in February, quoting one of the reasons they are suing the platform because StockX was selling counterfeit sneakers despite its guarantee of authenticity[2]. The lawsuit caused a stir among sneaker enthusiasts who were shocked at this revelation.
 
 Proposed Solution
 
-Physical NFTs
+Physical NFTs:
 
 To improve the reliability and eliminate the hassle of verifying the authenticity of sneakers, the group came up with an idea using Blockchain and non-fungible tokens (NFT) to overcome the problem. The proposed idea is to incorporate the shoe with a unique ID of the sneaker’s NFT art. The user will need to have both the physical shoe and the NFT as proof of purchase. This solution covers the weakness of both Blockchain and physical copy. For Blockchain, we can show the ownership online, but we do not have the physical object to back it up. For physical items, there are high-quality replicas, which are the main reason for scams in modern times. 
 
