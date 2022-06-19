@@ -30,3 +30,21 @@ Current 'State of The Art' solution
 There are already available solutions in the market as of the date of the proposal being written. The current state of the art solution is used to identify paintings and the project is known as “The Currency Project”. There are a total of 10, 000 hand drawn pieces and behind each piece has the artist signature, a unique phrase and a watermark to uniquely identify each piece. The only difference with this solution is that the person has to buy the NFT first and has a year to decide to buy the physical piece. Once the physical piece is bought then the NFT will be destroyed. That is not the solution the team is looking for as NFT is able to hold crucial metadata. 
 
 Another available solution that is closely related to the solution that the team is currently proposing is by stockX. They have a feature called ‘Vault NFT’ where physical copies of limited collection sneakers are tied to NFTs. These sneakers are stored in a safe vault and can be taken out anytime if the owner so chooses. These transactions will be recorded into the block and are analogous. The differences between stockX’s solution and the group is that stock’s solution is purely online and the group requires sneaker owners to have both the NFT and physical sneaker to trade.  
+
+Setup:
+1) Install Ganache
+2) Ensure node.js installed
+3) run 'npm install -g truffle@5.0.2' in cmd
+4) Pull git
+5) run 'npm install' in directory
+6) Install MetaMask chrome extension
+7) Run Ganache
+8) First account, click on key icon on the right side and copy the private key
+9) Add new network in MetaMask, with the following details
+	- Network Name: Ganache
+	- New RPC URL: HTTP://127.0.0.1:7545
+	- Chain ID: 1337
+	- Currency Symbol: ETH 
+10) In MetaMask, click on profile icon (top right)
+	- Click 'import account' > paste copied private key > 'import' 
+11) run 'npm run start' in cmd - will start website
