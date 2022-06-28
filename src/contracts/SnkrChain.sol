@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-contract SnkrChain {
+contract SocialNetwork {
     string public name;
     uint public postCount = 0;
     mapping(uint => Post) public posts;
@@ -9,6 +9,7 @@ contract SnkrChain {
         uint id;
         string content;
         uint tipAmount;
+        uint price;
         address payable author;
     }
 
@@ -16,6 +17,7 @@ contract SnkrChain {
         uint id,
         string content,
         uint tipAmount,
+        uint price,
         address payable author
     );
 
@@ -36,9 +38,9 @@ contract SnkrChain {
         // Increment the post count
         postCount ++;
         // Create the post
-        posts[postCount] = Post(postCount, _content, 0, msg.sender);
+        posts[postCount] = Post(postCount, _content, 0, 123, msg.sender);
         // Trigger event
-        emit PostCreated(postCount, _content, 0, msg.sender);
+        emit PostCreated(postCount, _content, 0, 123, msg.sender);
     }
 
     function tipPost(uint _id) public payable {

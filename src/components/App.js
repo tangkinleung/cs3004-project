@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Web3 from 'web3';
 import Identicon from 'identicon.js';
 import './App.css';
-import SocialNetwork from '../abis/SocialNetwork.json'
+import SnkrChain from '../abis/SnkrChain.json'
 import Navbar from './Navbar'
 import Main from './Main'
 
@@ -33,15 +33,15 @@ class App extends Component {
     this.setState({ account: accounts[0] })
     // Network ID
     const networkId = await web3.eth.net.getId()
-    const networkData = SocialNetwork.networks[networkId]
+    const networkData = SnkrChain.networks[networkId]
     if(networkData) {
-      const socialNetwork = web3.eth.Contract(SocialNetwork.abi, networkData.address)
-      this.setState({ socialNetwork })
-      const postCount = await socialNetwork.methods.postCount().call()
+      const snkrChain = web3.eth.Contract(SnkrChain.abi, networkData.address)
+      this.setState({ snkrChain })
+      const postCount = await snkrChain.methods.postCount().call()
       this.setState({ postCount })
       // Load Posts
       for (var i = 1; i <= postCount; i++) {
-        const post = await socialNetwork.methods.posts(i).call()
+        const post = await snkrChain.methods.posts(i).call()
         this.setState({
           posts: [...this.state.posts, post]
         })
@@ -52,13 +52,13 @@ class App extends Component {
       })
       this.setState({ loading: false})
     } else {
-      window.alert('SocialNetwork contract not deployed to detected network.')
+      window.alert('SnkrChain contract not deployed to detected network.')
     }
   }
 
-  createPost(content) {
+  createPost(content,price) {
     this.setState({ loading: true })
-    this.state.socialNetwork.methods.createPost(content).send({ from: this.state.account })
+    this.state.snkrChain.methods.createPost(content).send({ from: this.state.account })
     .once('receipt', (receipt) => {
       this.setState({ loading: false })
     })
@@ -66,17 +66,26 @@ class App extends Component {
 
   tipPost(id, tipAmount) {
     this.setState({ loading: true })
-    this.state.socialNetwork.methods.tipPost(id).send({ from: this.state.account, value: tipAmount })
+    this.state.snkrChain.methods.tipPost(id).send({ from: this.state.account, value: tipAmount })
     .once('receipt', (receipt) => {
       this.setState({ loading: false })
     })
   }
 
+  // buyPost(id){
+  //   this.setState({ loading: true })
+  //   this.state.socialNetwork.methods.tipPost(id).send({ from: this.state.account, value: tipAmount })
+  //   .once('receipt', (receipt) => {
+  //     this.setState({ loading: false })
+  //   })
+
+  // }
+
   constructor(props) {
     super(props)
     this.state = {
       account: '',
-      socialNetwork: null,
+      snkrChain: null,
       postCount: 0,
       posts: [],
       loading: true

@@ -13,7 +13,8 @@ class Main extends Component {
                 <form onSubmit={(event) => {
                   event.preventDefault()
                   const content = this.postContent.value
-                  this.props.createPost(content)
+                  const price = this.listingPrice.value
+                  this.props.createPost(content,Number(price))
                 }}>
                 <div className="form-group mr-sm-2">
                   <input
@@ -21,10 +22,19 @@ class Main extends Component {
                     type="text"
                     ref={(input) => { this.postContent = input }}
                     className="form-control"
-                    placeholder="What's on your mind?"
+                    placeholder="Input Sneaker Description"
                     required />
                 </div>
-                <button type="submit" className="btn btn-primary btn-block">Share</button>
+                <div className="form-group mr-sm-2">
+                  <input
+                    id="listingPrice"
+                    type="text"
+                    ref={(input) => { this.listingPrice = input }}
+                    className="form-control"
+                    placeholder="Input price"
+                    required />
+                </div>
+                <button type="submit" className="btn btn-primary btn-block">List</button>
               </form>
               <p>&nbsp;</p>
               { this.props.posts.map((post, key) => {
@@ -45,19 +55,17 @@ class Main extends Component {
                       </li>
                       <li key={key} className="list-group-item py-2">
                         <small className="float-left mt-1 text-muted">
-                          TIPS: {window.web3.utils.fromWei(post.tipAmount.toString(), 'Ether')} ETH
+                          Highest Bid: {window.web3.utils.fromWei(post.tipAmount.toString(), 'Ether')} ETH
                         </small>
-                        <button
-                          className="btn btn-link btn-sm float-right pt-0"
-                          name={post.id}
-                          onClick={(event) => {
-                            let tipAmount = window.web3.utils.toWei('0.1', 'Ether')
-                            console.log(event.target.name, tipAmount)
-                            this.props.tipPost(event.target.name, tipAmount)
-                          }}
-                        >
-                          TIP 0.1 ETH
-                        </button>
+                        <form onSubmit={(event) => {
+                  event.preventDefault()
+                  const content = this.postContent.value
+                  this.props.createPost(content)
+                }}>
+                <button type="submit" className="btn btn-primary btn-block">Buy</button>
+              </form>
+                     
+                        
                       </li>
                     </ul>
                   </div>
