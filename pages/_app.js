@@ -10,22 +10,22 @@ function MyApp({ Component, pageProps }) {
         <div className="flex mt-4">
           <Link href="/">
             <a className="mr-4 text-pink-500">
-              Home
+              Store
             </a>
           </Link>
           <Link href="/create-nft">
             <a className="mr-6 text-pink-500">
-              Sell NFT
+              Sell Snkrs
             </a>
           </Link>
           <Link href="/my-nfts">
             <a className="mr-6 text-pink-500">
-              My NFTs
+              My Snkrs
             </a>
           </Link>
           <Link href="/dashboard">
             <a className="mr-6 text-pink-500">
-              Dashboard
+              Listed Items
             </a>
           </Link>
         </div>
