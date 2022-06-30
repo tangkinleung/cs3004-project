@@ -98,8 +98,8 @@ export default function CreateItem() {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        <button onClick={listNFTForSale} className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg">
-          Create NFT
+        <button onClick={listNFTForSale} className="font-bold mt-4 bg-purple-500 text-white rounded p-4 shadow-lg">
+          Create Snkrs
         </button>
       </div>
     </div>

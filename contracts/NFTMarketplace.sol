@@ -22,6 +22,7 @@ contract NFTMarketplace is ERC721URIStorage {
       address payable seller;
       address payable owner;
       uint256 price;
+      string size;
       bool sold;
     }
 
@@ -30,6 +31,7 @@ contract NFTMarketplace is ERC721URIStorage {
       address seller,
       address owner,
       uint256 price,
+      string size,
       bool sold
     );
 
@@ -131,6 +133,13 @@ contract NFTMarketplace is ERC721URIStorage {
       }
       return items;
     }
+
+    /*test function*/
+    function checkAdmin() public view return string{
+      string user = msg.sender;
+      return user;
+    }
+    
 
     /* Returns only items that a user has purchased */
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
