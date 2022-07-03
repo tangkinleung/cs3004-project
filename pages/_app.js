@@ -128,6 +128,7 @@ async function onInit() {
 async function start(){
   await onInit()
   await console.log(test)
+  // document.location.reload(true)
   // await myApp
 }
 
