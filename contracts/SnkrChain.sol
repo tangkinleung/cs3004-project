@@ -4,7 +4,6 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-
 import "hardhat/console.sol";
 
 contract SnkrChain is ERC721URIStorage {
@@ -22,7 +21,6 @@ contract SnkrChain is ERC721URIStorage {
       address payable seller;
       address payable owner;
       uint256 price;
-      // uint256 size;
       bool sold;
     }
 
@@ -72,7 +70,6 @@ contract SnkrChain is ERC721URIStorage {
         payable(msg.sender),
         payable(address(this)),
         price,
-        // size,
         false
       );
 
@@ -82,7 +79,6 @@ contract SnkrChain is ERC721URIStorage {
         msg.sender,
         address(this),
         price,
-        // size,
         false
       );
     }
@@ -134,13 +130,6 @@ contract SnkrChain is ERC721URIStorage {
       }
       return items;
     }
-
-    /*test function*/
-    function checkAdmin() public view returns(address) {
-      address user = msg.sender;
-      return user;
-    }
-    
 
     /* Returns only items that a user has purchased */
     function fetchMyNFTs() public view returns (MarketItem[] memory) {

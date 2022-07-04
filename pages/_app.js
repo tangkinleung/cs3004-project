@@ -1,33 +1,51 @@
 /* pages/_app.js */
 import '../styles/globals.css'
 import Link from 'next/link'
+import { ethers } from 'ethers'
+import Web3Modal from 'web3modal'
+import { useEffect, useState } from 'react'
 
-function MyApp({ Component, pageProps }) {
-  onInit()
-
-  if(acctAddress == "0x94e4ebdf880c7eaa72346dbf4fb33d9be85f022f"){
-    console.log("Admin Account detected");
+export default function MyApp({ Component, pageProps }) {
+  const [acc, setAcc] = useState([])
+  const [loadingState, setLoadingState] = useState('not-loaded')
+  useEffect(() => {
+    getAccount()
+  }, [])
+  async function getAccount() {
+    const web3Modal = new Web3Modal({
+      network: 'mainnet',
+      cacheProvider: true,
+    })
+    const connection = await web3Modal.connect()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const accounts = await provider.listAccounts()
+    setAcc(accounts)
+    setLoadingState('loaded')
+  }
+  if(acc[0]=="0x94e4eBDF880c7eaa72346DbF4Fb33d9BE85f022F"){
     return (
       <div>
         <nav className="border-b p-6 bg-purple-500">
-          <p className="text-4xl font-bold text-white">SnkrChain</p>
+          <p className="text-4xl font-bold text-white">SnkrChain</p> 
+          <img src = "snkr.png" class ="inline-block h-12 w-15"></img>
+
           <div className="flex mt-4">
             <Link href="/">
               <a className="mr-4 text-white">
                 Store
               </a>
             </Link>
-            <Link href="/create-nft">
+            <Link href="/create-snkrs">
               <a className="mr-6 text-white">
                 Sell Snkrs
               </a>
             </Link>
-            <Link href="/my-nfts">
+            <Link href="/my-snkrs">
               <a className="mr-6 text-white">
                 My Snkrs
               </a>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/listed-snkrs">
               <a className="mr-6 text-white">
                 Listed Items
               </a>
@@ -36,8 +54,8 @@ function MyApp({ Component, pageProps }) {
         </nav>
         <Component {...pageProps} />
       </div>
-    )
-  } else{
+    ) 
+  }else{
     return (
       <div>
         <nav className="border-b p-6 bg-purple-500">
@@ -48,12 +66,12 @@ function MyApp({ Component, pageProps }) {
                 Store
               </a>
             </Link>
-            <Link href="/my-nfts">
+            <Link href="/my-snkrs">
               <a className="mr-6 text-white">
                 My Snkrs
               </a>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/listed-snkrs">
               <a className="mr-6 text-white">
                 Listed Items
               </a>
@@ -62,27 +80,6 @@ function MyApp({ Component, pageProps }) {
         </nav>
         <Component {...pageProps} />
       </div>
-    )
+    ) 
   }
-}
-
-let acctAddress;
-var app = MyApp;
-var test = 1;
-
-async function onInit() {
-  await window.ethereum.enable();
-  const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-  const account = accounts[0];
-  console.log(account);
-  acctAddress = account.toString();
-   window.ethereum.on('accountsChanged', function (accounts) {
-      // Time to reload your interface with accounts[0]!
-      console.log(accounts[0])
-     });
-     return account
-    
-}
-
-onInit()
-export default app
+  } 
