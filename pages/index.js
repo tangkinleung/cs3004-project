@@ -8,7 +8,8 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+// import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import SnkrChain from '../artifacts/contracts/SnkrChain.sol/SnkrChain.json'
 
 export default function Home() {
   const [nfts, setNfts] = useState([])
@@ -19,7 +20,7 @@ export default function Home() {
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new ethers.providers.JsonRpcProvider()
-    const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, provider)
+    const contract = new ethers.Contract(marketplaceAddress, SnkrChain.abi, provider)
     const data = await contract.fetchMarketItems()
 
     /*
@@ -50,7 +51,7 @@ export default function Home() {
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
-    const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    const contract = new ethers.Contract(marketplaceAddress, SnkrChain.abi, signer)
 
     /* user will be prompted to pay the asking proces to complete the transaction */
     const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')   
@@ -73,6 +74,7 @@ export default function Home() {
                   <p style={{ height: '64px' }} className="text-2xl font-semibold">{nft.name}</p>
                   <div style={{ height: '70px', overflow: 'hidden' }}>
                     <p className="text-gray-400">{nft.description}</p>
+                    <p className="text-gray-400">{nft.size}</p>
                   </div>
                 </div>
                 <div className="p-4 bg-black">

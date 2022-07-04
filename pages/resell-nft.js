@@ -8,7 +8,8 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+// import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import SnkrChain from '../artifacts/contracts/SnkrChain.sol/SnkrChain.json'
 
 export default function ResellNFT() {
   const [formInput, updateFormInput] = useState({ price: '', image: '' })
@@ -34,7 +35,7 @@ export default function ResellNFT() {
     const signer = provider.getSigner()
 
     const priceFormatted = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    let contract = new ethers.Contract(marketplaceAddress, SnkrChain.abi, signer)
     let listingPrice = await contract.getListingPrice()
 
     listingPrice = listingPrice.toString()

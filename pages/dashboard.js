@@ -8,7 +8,8 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+// import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import SnkrChain from '../artifacts/contracts/SnkrChain.sol/SnkrChain.json'
 
 export default function CreatorDashboard() {
   const [nfts, setNfts] = useState([])
@@ -25,7 +26,7 @@ export default function CreatorDashboard() {
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
 
-    const contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    const contract = new ethers.Contract(marketplaceAddress, SnkrChain.abi, signer)
     const data = await contract.fetchItemsListed()
 
     const items = await Promise.all(data.map(async i => {

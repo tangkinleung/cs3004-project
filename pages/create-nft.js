@@ -11,11 +11,12 @@ import {
   marketplaceAddress
 } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+// import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import SnkrChain from '../artifacts/contracts/SnkrChain.sol/SnkrChain.json'
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
-  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
+  const [formInput, updateFormInput] = useState({ price: '', name: '', description: '', size: ''})
   const router = useRouter()
 
   async function onChange(e) {
@@ -51,7 +52,7 @@ export default function CreateItem() {
     }  
   }
 
-  async function listNFTForSale() {
+  async function listSnkrForSale() {
     const url = await uploadToIPFS()
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
@@ -60,10 +61,11 @@ export default function CreateItem() {
 
     /* create the NFT */
     const price = ethers.utils.parseUnits(formInput.price, 'ether')
-    let contract = new ethers.Contract(marketplaceAddress, NFTMarketplace.abi, signer)
+    let contract = new ethers.Contract(marketplaceAddress, SnkrChain.abi, signer)
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
-    let transaction = await contract.createToken(url, price, { value: listingPrice },)
+    console.log(listingPrice)
+    let transaction = await contract.createToken(url, price, { value: listingPrice })
     await transaction.wait()
 
     router.push('/')
@@ -73,17 +75,22 @@ export default function CreateItem() {
     <div className="flex justify-center">
       <div className="w-1/2 flex flex-col pb-12">
         <input 
-          placeholder="Asset Name"
+          placeholder="Sneaker Name"
           className="mt-8 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
         />
         <textarea
-          placeholder="Asset Description"
+          placeholder="Sneaker Brand/Description"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, description: e.target.value })}
         />
         <input
-          placeholder="Asset Price in Eth"
+          placeholder="Sneaker Size (UK)"
+          className="mt-2 border rounded p-4"
+          onChange={e => updateFormInput({ ...formInput, size: e.target.value })}
+        />
+        <input
+          placeholder="Sneaker Price in Eth"
           className="mt-2 border rounded p-4"
           onChange={e => updateFormInput({ ...formInput, price: e.target.value })}
         />
@@ -98,7 +105,7 @@ export default function CreateItem() {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        <button onClick={listNFTForSale} className="font-bold mt-4 bg-purple-500 text-white rounded p-4 shadow-lg">
+        <button onClick={listSnkrForSale} className="font-bold mt-4 bg-purple-500 text-white rounded p-4 shadow-lg">
           Create Snkrs
         </button>
       </div>
