@@ -27,9 +27,8 @@ export default function MyApp({ Component, pageProps }) {
       <div>
         <nav className="border-b p-6 bg-purple-500">
           <p className="text-4xl font-bold text-white">SnkrChain   
-          
-          <img src = "snkr.png" class ="inline-block h-12 w-12 m-3"></img></p> 
-
+          <img src = "snkr.png" class ="inline-block h-12 w-12 m-3"></img>
+          </p> 
           <div className="flex mt-4">
             <Link href="/">
               <a className="mr-4 text-white">
@@ -60,7 +59,9 @@ export default function MyApp({ Component, pageProps }) {
     return (
       <div>
         <nav className="border-b p-6 bg-purple-500">
-          <p className="text-4xl font-bold text-white">SnkrChain</p>
+        <p className="text-4xl font-bold text-white">SnkrChain   
+          <img src = "snkr.png" class ="inline-block h-12 w-12 m-3"></img>
+          </p> 
           <div className="flex mt-4">
             <Link href="/">
               <a className="mr-4 text-white">
