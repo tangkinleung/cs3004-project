@@ -17,12 +17,6 @@ docker logs node
 First 2 commands to build and run the docker container
 docker logs myhd will list the generated ethereum accounts we can import into metamask
 
-Second terminal (Run web app):
-```Run web client
-npx hardhat run scripts/deploy.js --network localhost
-npm run dev
-```
-
 Second terminal (Run web app locally):
 ```Run web client
 npx hardhat run scripts/deploy.js --network localhost
