@@ -23,21 +23,15 @@ npx hardhat run scripts/deploy.js --network localhost
 npm run dev
 ```
 
-Second terminal (Run web app locally):
-```Run web client
-npx hardhat run scripts/deploy.js --network localhost
-npm run dev
-```
-Local web app has local access check, simply replace the /pages/_app.js file with /extra_codes/_app.js and copy admin address into _app.js file (will be shown in video demonstration)
-
-OR
-
 Second terminal (Run web app from docker):
 ```Run web client
 docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
 docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
 ```
 
-Docker version has no admin check as hardhat is not a persistent node and will restart everytime the container is restarted
+Admin Addresses used:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+
+Buyer accounts can be imported from any of the list besides the address listed above
+
 
 An example use case of the application with all the steps listed above will be displayed more clearly in our video demonstration
