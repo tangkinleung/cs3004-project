@@ -5,12 +5,12 @@ All commands are run within the root folder of the project in command prompt.
 
 Try running some of the following tasks:
 
-Build Docker Image
+##Build Docker Image
 ```Build Docker Image
 docker build . -t hhdocker
 ```
 
-Build HardHat Node
+##Build HardHat Node
 ```Build HardHat Node
 docker run -it -d -p 8545:8545 -p 3000:3000 --name node hhdocker
 docker logs node
@@ -22,7 +22,7 @@ Admin Addresses used:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 
 Buyer accounts can be imported from any of the list besides the address listed above
 
-Run webapp client from docker
+##Run webapp client from docker
 ```Run web client
 docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
 docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
