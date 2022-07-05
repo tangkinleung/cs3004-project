@@ -9,29 +9,21 @@ Try running some of the following tasks:
 docker build . -t hhdocker
 ```
 
-First terminal (build hardhat node):
-```Build Docker Image
+```Build HardHat Node
 docker run -it -d -p 8545:8545 -p 3000:3000 --name node hhdocker
 docker logs node
 ```
 First 2 commands to build and run the docker container
-docker logs myhd will list the generated ethereum accounts we can import into metamask
-
-Second terminal (Run web app):
-```Run web client
-npx hardhat run scripts/deploy.js --network localhost
-npm run dev
-```
-
-Second terminal (Run web app from docker):
-```Run web client
-docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
-docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
-```
+docker logs myhd will list the generated ethereum accounts we can import into MetaMask
 
 Admin Addresses used:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 
 Buyer accounts can be imported from any of the list besides the address listed above
+
+```Run web client
+docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
+docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
+```
 
 
 An example use case of the application with all the steps listed above will be displayed more clearly in our video demonstration
