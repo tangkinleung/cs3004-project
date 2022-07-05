@@ -32,6 +32,7 @@ docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
 docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
 ```
 
+Webapp can be accessed in browser by typing localhost:3000 as the url
 Docker version has no admin check as hardhat is not a persistent node and will restart everytime the container is restarted
 
 An example use case of the application with all the steps listed above will be displayed more clearly in our video demonstration
