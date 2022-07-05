@@ -1,3 +1,3 @@
 
-  export const snkrChainAddress = "0x3D02762c232f954fD3ECF7EDDc66C11103327f42"
+  export const snkrChainAddress = "0xa590156cf2772F534784fc5118E0Af26A20e70d7"
   

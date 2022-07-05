@@ -52,9 +52,9 @@ export default function CreatorDashboard() {
           {
             nfts.map((nft, i) => (
               <div key={i} className="border shadow rounded-xl overflow-hidden">
-                <img src={nft.image} className="rounded" />
-                <div className="p-4 bg-black">
-                  <p className="text-2xl font-bold text-white">Price - {nft.price} Eth</p>
+                <img class="obect-scale-down h-48 w-96" src={nft.image} className="rounded" />
+                <div className="p-3 bg-black">
+                  <p className="text-2x1 font-bold text-white">Price - {nft.price} Eth</p>
                 </div>
               </div>
             ))

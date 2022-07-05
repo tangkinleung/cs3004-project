@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
     setAcc(accounts)
     setLoadingState('loaded')
   }
-  if(acc[0]=="0x94e4eBDF880c7eaa72346DbF4Fb33d9BE85f022F"){
+  if(acc[0]=="0x3b0b100d5926EbCFe51d7202Dd0367CD595d17C5"){
     return (
       <div>
         <nav className="border-b p-6 bg-purple-500">
