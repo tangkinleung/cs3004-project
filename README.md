@@ -12,12 +12,12 @@ docker build . -t snkrchaindocker
 
 ## Pull Docker Image
 ```Pull Docker Image
-docker pull le0rignz/snkrchaindocker:snkrchaindocker
+docker pull le0rignz/snkrchaindocker:latest
 ```
 
 ## Run container and launch hardhat network
 ```Build HardHat Node
-docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain le0rignz/snkrchaindocker:snkrchaindocker
+docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain le0rignz/snkrchaindocker:latest
 docker logs SnkrChain
 ```
 First 2 commands to build and run the docker container
