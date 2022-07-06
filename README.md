@@ -3,14 +3,14 @@ Doing so eliminates the counterfeiter's main motivation of counterfeiting shoes 
 
 All commands are run within the root folder of the project in command prompt.
 
-Try running some of the following tasks:
+Try running some of the following tasks to set up for the first time:
 
 ## Build Docker Image
 ```Build Docker Image
 docker build . -t hhdocker
 ```
 
-## Build HardHat Node
+## Run hardHat Node
 ```Build HardHat Node
 docker run -it -d -p 8545:8545 -p 3000:3000 --name node hhdocker
 docker logs node
@@ -31,3 +31,4 @@ docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
 
 
 An example use case of the application with all the steps listed above will be displayed more clearly in our video demonstration
+
