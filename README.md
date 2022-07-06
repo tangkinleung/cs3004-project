@@ -7,12 +7,17 @@ Try running some of the following tasks to set up for the first time:
 
 ## Build Docker Image
 ```Build Docker Image
-docker build . -t hhdocker
+docker build . -t snkrchaindocker
 ```
 
-## Run HardHat Node
+## Pull Docker Image
+```Pull Docker Image
+docker pull le0rignz/snkrchaindocker:snkrchaindocker
+```
+
+## Run container and launch hardhat network
 ```Build HardHat Node
-docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain hhdocker
+docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain le0rignz/snkrchaindocker:snkrchaindocker
 docker logs SnkrChain
 ```
 First 2 commands to build and run the docker container
