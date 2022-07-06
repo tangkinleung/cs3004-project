@@ -1,5 +1,5 @@
 This project uses an NFT marketplace as a medium to sell and resell sneakers. All NFTs are minted from the admin SnkrChain account, can be bought from the main and only these authorised NFTs are allowed to be traded within the platform. 
-Doing so eliminates the counterfeiter's main motivation of counterfeiting shoes on the platform as the shoe value on SnkrChain is within the NFT and block chain rather than on the physical item, this ensure that the buyer's still get the full value of the shoe they bought even if they receive a counterfeit.
+Doing so eliminates the counterfeiter's main motivation of counterfeiting shoes on the platform as the shoe value on SnkrChain is within the NFT and block chain rather than on the physical item, this ensure that the buyers still get the full value of the shoe they bought even if they receive a counterfeit.
 
 All commands are run within the root folder of the project in command prompt.
 
@@ -12,12 +12,12 @@ docker build . -t snkrchaindocker
 
 ## Pull Docker Image
 ```Pull Docker Image
-docker pull le0rignz/snkrchaindocker:latest
+docker pull le0riginz/snkrchaindocker:latest
 ```
 
 ## Run container and launch hardhat network
 ```Build HardHat Node
-docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain le0rignz/snkrchaindocker:latest
+docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain le0riginz/snkrchaindocker:latest
 docker logs SnkrChain
 ```
 First 2 commands to build and run the docker container
