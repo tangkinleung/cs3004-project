@@ -10,23 +10,23 @@ Try running some of the following tasks to set up for the first time:
 docker build . -t hhdocker
 ```
 
-## Run hardHat Node
+## Run HardHat Node
 ```Build HardHat Node
-docker run -it -d -p 8545:8545 -p 3000:3000 --name node hhdocker
-docker logs node
+docker run -it -d -p 8545:8545 -p 3000:3000 --name SnkrChain hhdocker
+docker logs SnkrChain
 ```
 First 2 commands to build and run the docker container
 
 docker logs node will list the generated ethereum accounts we can import into MetaMask
 
-Admin Addresses used:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+Admin Address used:0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
 
 Buyer accounts can be imported from any of the list besides the address listed above
 
 ## Run webapp client from docker
 ```Run web client
-docker exec -it node /bin/sh -c "cd /usr/src/app; yarn deploy:local"
-docker exec -it node /bin/sh -c "cd /usr/src/app; npm run dev"
+docker exec -it SnkrChain /bin/sh -c "cd /usr/src/app; yarn deploy:local"
+docker exec -it SnkrChain /bin/sh -c "cd /usr/src/app; npm run dev"
 ```
 
 
