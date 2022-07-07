@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-     "start:local": "./node_modules/.bin/hardhat --config hardhat.config.js node",
+    "start:local": "./node_modules/.bin/hardhat --config hardhat.config.js node",
     "deploy:local": "./node_modules/.bin/hardhat --config hardhat.config.js --network localhost run scripts/deploy.js",
     "test:local": "./node_modules/.bin/hardhat --config hardhat.config.local.js test"
   },

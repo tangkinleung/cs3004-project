@@ -1,4 +1,4 @@
-/* test/sample-test.js */
+/* test/SnkrChain-test.js */
 describe("SnkrChain", function() {
   it("Should create and execute Snkr sales", async function() {
     /* deploy the marketplace */
@@ -11,19 +11,19 @@ describe("SnkrChain", function() {
 
     const auctionPrice = ethers.utils.parseUnits('1', 'ether')
 
-    /* create two tokens */
+    /* create two tokens/sneakers listings */
     await snkrChain.createToken("https://www.mytokenlocation.com", auctionPrice, { value: listingPrice })
     await snkrChain.createToken("https://www.mytokenlocation2.com", auctionPrice, { value: listingPrice })
 
     const [_, buyerAddress] = await ethers.getSigners()
 
-    /* execute sale of token to another user */
+    /* execute sale of token/sneaker to another user */
     await snkrChain.connect(buyerAddress).createMarketSale(1, { value: auctionPrice })
 
     /* resell a token */
     await snkrChain.connect(buyerAddress).resellToken(1, auctionPrice, { value: listingPrice })
 
-    /* query for and return the unsold items */
+    /* query for and return the unsold sneakers */
     items = await snkrChain.fetchMarketItems()
     items = await Promise.all(items.map(async i => {
       const tokenUri = await snkrChain.tokenURI(i.tokenId)

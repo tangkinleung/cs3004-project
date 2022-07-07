@@ -83,7 +83,7 @@ contract SnkrChain is ERC721URIStorage {
       );
     }
 
-    /* allows someone to resell a token they have purchased */
+    /* allows someone to resell a sneaker/token they have purchased */
     function resellToken(uint256 tokenId, uint256 price) public payable {
       require(idToMarketItem[tokenId].owner == msg.sender, "Only item owner can perform this operation");
       require(msg.value == listingPrice, "Price must be equal to listing price");
@@ -96,8 +96,8 @@ contract SnkrChain is ERC721URIStorage {
       _transfer(msg.sender, address(this), tokenId);
     }
 
-    /* Creates the sale of a marketplace item */
-    /* Transfers ownership of the item, as well as funds between parties */
+    /* Creates the sale of a sneaker/token in the marketplace */
+    /* Transfers ownership of the sneaker, as well as funds between parties */
     function createMarketSale(
       uint256 tokenId
       ) public payable {
@@ -113,7 +113,7 @@ contract SnkrChain is ERC721URIStorage {
       payable(seller).transfer(msg.value);
     }
 
-    /* Returns all unsold market items */
+    /* Returns all unsold sneaker market items */
     function fetchMarketItems() public view returns (MarketItem[] memory) {
       uint itemCount = _tokenIds.current();
       uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
@@ -131,7 +131,7 @@ contract SnkrChain is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items that a user has purchased */
+    /* Returns only sneakers/items that a user has purchased */
     function fetchMyNFTs() public view returns (MarketItem[] memory) {
       uint totalItemCount = _tokenIds.current();
       uint itemCount = 0;
@@ -155,7 +155,7 @@ contract SnkrChain is ERC721URIStorage {
       return items;
     }
 
-    /* Returns only items a user has listed */
+    /* Returns only sneakers/items a user has listed */
     function fetchItemsListed() public view returns (MarketItem[] memory) {
       uint totalItemCount = _tokenIds.current();
       uint itemCount = 0;
