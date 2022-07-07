@@ -5,14 +5,14 @@ All commands are run within the root folder of the project in command prompt.
 
 Try running some of the following tasks to set up for the first time:
 
-## Build Docker Image from non Dockerised Folder
+## Build Docker Image from base files
 ```Build Docker Image
 docker build . -t snkrchaindocker
 ```
 
 OR 
 
-## Pull Docker Image
+## Pull Docker Image (USE THIS)
 ```Pull Docker Image
 docker pull le0riginz/snkrchaindocker:latest
 ```
